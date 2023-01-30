@@ -30,40 +30,26 @@ Consists of
 Statement consists of
 
 - `sid`: an identifier for the statement (optional).
-- `effect`: whether the statement allows or denies access (Allow, Deny)
-- `principal`: account/user/role which this policy applied to
+- `effect`: whether the statement allows or denies access (Allow, Deny).
+- `principal`: account/user/role which this policy applied to.
+- `action`: list of actions this policy allows or denies.
+- `resource`: list of resources to which actions applied to.
+- `conditional`: conditions for when this policy is in effect (optional).
 
 Example:
 
 ```json
 {
-  "version": "2012-10-17",
+  "Version": "2012-10-17",
+  "Id": "S3-Account-Permissions",
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "ec2:Describe*",
-      "Resource:": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "elasticloadbalancing:Describe*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "cloudwatch:ListMetrics",
-        "cloudwatch:GetMetricStatistics",
-        "cloudwatch:Describe*"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "1",
-      "Effect": "Allow",
       "Principal": {
         "AWS": ["arn:aws:iam:123456789:root"]
-      }
+      },
+      "Action": ["s3:GetObject", "s3:PutObject"],
+      "Resource": ["arn:aws:s3:::mybucket/*"]
     }
   ]
 }

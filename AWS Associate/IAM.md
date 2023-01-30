@@ -57,6 +57,13 @@ Example:
         "cloudwatch:Describe*"
       ],
       "Resource": "*"
+    },
+    {
+      "Sid": "1",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": ["arn:aws:iam:123456789:root"]
+      }
     }
   ]
 }

@@ -13,9 +13,25 @@
 - User or Groups can be assigned JSON documents called policies.
 - These policies define the permissions of the user.
 
-## IAM Policies inheritance
+### IAM Policies inheritance
 
 <img src="./Assets/Images/IAM/policies-inheritance.png" alt="Policies inheritance" />
+
+In this image, we can see that: Charles and David inherited 2 permissions (Audit and developers or Operators).
+
+### IAM Policies Structure
+
+Consists of
+
+- `version`: policy language version, always include "2012-10-17".
+- `id`: an identity for the policy (optional).
+- `Statement`: one or more individual statements (required).
+
+Statement consists of
+
+- `sid`: an identifier for the statement (optional).
+- `effect`: whether the statement allows or denies access (Allow, Deny)
+- `principal`: account/user/role which this policy applied to
 
 Example:
 

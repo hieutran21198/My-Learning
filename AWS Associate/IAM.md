@@ -63,6 +63,14 @@ Example:
   - Lambda Function roles.
   - Roles for CloudFormation.
 
+## IAM security tools
+
+- IAM Credentials Report (account-level)
+  - A report that list all your account's users and status of their credentials
+- IAM Access Advisor (user-level)
+  - Access advisor shows the service permissions granted to a user and when those service were last accessed.
+  - We can use this information to revise our policies.
+
 ## Important
 
 - Root account created by default, shouldn't be used or shared.

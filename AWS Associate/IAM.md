@@ -13,13 +13,13 @@
 - User or Groups can be assigned JSON documents called policies.
 - These policies define the permissions of the user.
 
-### IAM Policies inheritance
+## IAM Policies inheritance
 
 <img src="./Assets/Images/IAM/policies-inheritance.png" alt="Policies inheritance" />
 
 In this image, we can see that: Charles and David inherited 2 permissions (Audit and developers or Operators).
 
-### IAM Policies Structure
+## IAM Policies Structure
 
 Consists of
 
@@ -54,6 +54,14 @@ Example:
   ]
 }
 ```
+
+## IAM Roles for Services
+
+- Some AWS services will need to perform actions on your behalf. To do so, we will assign permissions to AWS services with `IAM Roles`.
+- Common roles:
+  - EC2 Instance roles.
+  - Lambda Function roles.
+  - Roles for CloudFormation.
 
 ## Important
 

@@ -81,6 +81,83 @@ Example: `T2.micro` instance is part of AWS free tier (up to 750 hours per month
   - Data warehousing applications.
   - Distributed file systems.
 
+## EC2 instances purchasing options
+
+- On-demand instances - short workload, predictable pricing, pay by second.
+- Reserved (1 & 3 years)
+  - Reserved instances - long workloads for example running a database for a long time.
+  - Convertible reserved instances - long workloads with flexible instances.
+- Saving plans (1 & 3 years) - commitment to an amount of usage, long workload.
+- Spot instances - short workloads, cheap, can lose instances (less reliable).
+- Dedicated hosts - book an entire physical server, control instance placement.
+- Dedicated instances - no others customers will share your hardware.
+- Capacity reservations - reserve capacity in a specific AZ for any duration.
+
+### EC2 on demand
+
+- Pay for what you use:
+- Linux or Windows - billing per second, after the first minute.
+- All other OS - billing per hour.
+- Has the highest cost but no upfront payment.
+- No long-term commitment.
+- Recommended for `short-term` and `un-interupted` workloads, where you can't predict how the application will behave.
+
+### EC2 reserved instances
+
+- Up to 72% discount compared to On-demand.
+- Reserve a specific instance attributes (Instance type, region, tenancy, OS)
+- Reservation period - 1 Year (+ discount) or 3 Years(+++discount)
+- Payment options - No upfront(+), Partial upfront(++), All upfront(+++)
+- Reserved instance's scope - Regional or Zonal (reserve capacity in an AZ)
+- You can buy and sell in the reserved instance Marketplace if you don't need them anymore.
+
+- Convertible Reserved instance
+  - Can change the EC2 instance type, instance family, OS, scope and tenancy.
+  - Up to 66% discount compared to On-demand.
+
+### EC2 savings plans
+
+- Get a discount based on long-term usage (up to 72%, same as RIs)
+- Commit to a certain type of usage ($10/hour for 1 or 3 years)
+- Usage beyond EC2 savings plans is billed at the On-Demand price.
+- Locked to a specific instance family & AWS region (e.g., M5 in ap-southeast-1)
+- Flexible across:
+  - Instance size (e.g., m5.xlarge, m5.2xlarge)
+  - OS (e.g., Linux, Windows)
+  - Tenancy (Host, Dedicated, Default)
+
+### EC2 Spot instances
+
+- Can get a discount of up to 90% compared to On-Demand
+- Instance that you can 'lose' at any point of time if you max price is less than the current spot price.
+- The most cost-effecient instances in AWS.
+- Useful for workloads that are resilient to failure.
+  - Batch jobs
+  - Data analysis
+  - Image processing
+  - Any distributed workloads
+  - Workloads with a flexible start and end time
+- `Not suitable` for `critical` jobs or `databases`
+
+### EC2 dedicated hosts
+
+- A physical server with EC2 instance capacity fully dedicated to your use.
+- Allows you address compliance requirements and use existing server-bound software licenses (per-socket, per-core, per-VM software licenses)
+- Purchasing options:
+  - On-demand - pay per second for active dedicated host.
+  - Reserved - 1 or 3 years (No upfront, partial upfront, all upfront)
+- The most expensive option.
+- Useful for software that have complicated licensing model (BYOL - Bring Your Own License)
+- Or for the companies that have strong regulatory or compliance needs.
+
+### EC2 dedicated instances
+
+- Instances run on hardware that's dedicated to you.
+- May share hardware with other instances in same account.
+- No control over instance placement (can move hardware after Stop/Start)
+
+<img src="./Assets/Images/ec2-dedicated-instance-hosts.png" alt="instance versus hosts" />
+
 ## Important
 
 - The EC2 user data script runs with the root user -> any commands will have the pseudo rights.

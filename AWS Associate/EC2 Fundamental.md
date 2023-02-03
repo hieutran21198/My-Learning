@@ -36,10 +36,13 @@ Example: `T2.micro` instance is part of AWS free tier (up to 750 hours per month
 ## EC2 instance types
 
 - Detail about EC2 instance located [here](https://aws.amazon.com/ec2/instance-types/).
-- AWS has the following naming convention:
-  [instance_class][generation (aws improves them over time)].[size within the instance class]
+- AWS has the following naming convention:<br>
+
+  [instance_class][generation (aws improves them over time)].[size within the instance class]<br>
+
   For example: m5.x2large
-- Now we have 7 different types for purposes.
+
+- Now we have 7 different types for any purposes.
 
 ### EC2 instance types - General purpose
 

@@ -126,7 +126,7 @@ Example: `T2.micro` instance is part of AWS free tier (up to 750 hours per month
   - OS (e.g., Linux, Windows)
   - Tenancy (Host, Dedicated, Default)
 
-### EC2 Spot instances
+### EC2 spot instances
 
 - Can get a discount of up to 90% compared to On-Demand
 - Instance that you can 'lose' at any point of time if you max price is less than the current spot price.
@@ -136,8 +136,30 @@ Example: `T2.micro` instance is part of AWS free tier (up to 750 hours per month
   - Data analysis
   - Image processing
   - Any distributed workloads
-  - Workloads with a flexible start and end time
-- `Not suitable` for `critical` jobs or `databases`
+  - Workloads with a flexible start and end time.
+- `Not suitable` for `critical` jobs or `databases`.
+
+- Define `max spot price` and get the instance while current spot price < max.
+  - The hourly spot price varies based on offer and capacity.
+  - If the current spot price > max price, you can choose to `stop` or `terminate` your instance with a 2 minutes grace period.
+    <img src="./Assets/Images/spot-instance.png" alt="spot instance" />
+    <img src="./Assets/Images/spot-instance-2.png" alt="spot instance" />
+- You can only cancel spot instance requests that are `open`, `active`, or `disabled`.
+- Cancelling a `Spot Request` does not terminate instances.
+- You must first cancel a `Spot Request`, and then terminate the associated Spot Instances.
+
+#### Spot Fleets
+
+- Spot fleets = set of spot instances + (optional) On-Demand instances.
+- It will try to meet the target capacity with price constraints.
+  - Define possible launch pools: instance type (m5.large), OS, Availability Zone.
+  - Can have multiple launch pools, so that fleet can choose.
+  - IT stops launching instances when reaching capacity or max cost.
+- Strategies to allocate Spot Instances
+  - `lowestPrice`: from the pool with the lowest price (cost optimization, short workload)
+  - `diversified`: distributed across all pools (great for availability, long workloads)
+  - `capacityOptimized`: pool with the optimal capacity for the number of instances.
+- It allows us to automatically request Spot Instances with the lowest price.
 
 ### EC2 dedicated hosts
 
@@ -157,6 +179,19 @@ Example: `T2.micro` instance is part of AWS free tier (up to 750 hours per month
 - No control over instance placement (can move hardware after Stop/Start)
 
 <img src="./Assets/Images/ec2-dedicated-instance-hosts.png" alt="instance versus hosts" />
+
+### EC2 capacity reservations
+
+- Reverse On-Demand instances capacity in a specific AZ for any duration.
+- You always have access to EC2 capacity when you need it.
+- No time commitment (create/cancel anytime), no billing discount.
+- Combine with Regional Reserved Instances and Savings Plans to benefit from billing discounts.
+- You're charged at On-Demand rate whether you run instances or not.
+- Suitable for short-term, un-interrupted workloads that needs to be in a specific AZ.
+
+<img src="./Assets/Images/purchase-options.png" alt="purchasing option" />
+
+<img src="./Assets/Images/ec2-pricing.png" alt="pricing" />
 
 ## Important
 

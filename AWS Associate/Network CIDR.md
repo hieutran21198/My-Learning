@@ -16,6 +16,7 @@
 - The subnet mask basically allows part of the underlying IP to get additional next values from the base IP.
 
 <img src="./Assets/Images/VPC_SubnetMask.png" alt="subnet mask" />
+<img src="./Assets/Images/vpc_subnetmask_octets.png" alt="subnet mask" />
 [CIDR Converter](https://www.ipaddressguide.com/cidr)<br>
 
 ## Public versus Private IP

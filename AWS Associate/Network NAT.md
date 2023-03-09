@@ -36,14 +36,14 @@ Notes:
 <img src="./Assets/Images/natgw_azs.png" alt="natgw azs" />
 - NATGW is resilient within a single AZ.
 - **MUST** create **multiple NAT Gateways** in **multiple AZs** for fault-tolerance.
-- No cross-AZ failover needed because if an AZ goes down it doesn't need NAT, all EC2 instances in that AZ will not be accessible. => We don't need to connect the AZs together through the route tables.
+- No cross-AZ failover is needed because if an AZ goes down it doesn't need NAT, all EC2 instances in that AZ will not be accessible. => We don't need to connect the AZs together through the route tables.
 
 <img src="./Assets/Images/natgwvsins.png" />
 
-## Recommended steps to create new NAT Gateway
+## Recommended steps to create a new NAT Gateway
 
 - Select multiple subnets for high availability.
 - Select an EIP to the `NATGW`.
 - Edit the route tables:
   - Create new destination for the `NATGW`, Example: 0.0.0.0/0 -> `NATGW_ID`
-- Back to `Bastion Host` instance and launched it. Connect `Bastion Host` to the private instance and try to connect internet from there. Example: `ping www.google.com`
+- Back to the `Bastion Host` instance and launched it. Connect to the `Bastion Host` to the private instance and try to connect the internet from there. Example: `ping www.google.com`

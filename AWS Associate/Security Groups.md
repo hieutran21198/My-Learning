@@ -1,6 +1,6 @@
 # Security Groups
 
-- Security groups are the fundamental of network security in AWS.
+- Security groups are the fundamental to network security in AWS.
 - They control how traffic is allowed into or out of our EC2 instances.
 - Security groups contain `allow` rules, without it nothing can be transfered.
 - Security groups rules can reference by IP or by security group.
